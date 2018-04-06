@@ -1,0 +1,24 @@
+{
+  "require": {
+    "php": ">=7.1.12",
+    "phpunit/phpunit": "4.8.35"
+  },
+  "autoload": {
+    "files": [
+      "core/bootstrap.php",
+      "core/settings.php",
+      "config/routes.php",
+      "config/repository.php",
+      "config/permissions.php",
+      "config/database.php"
+    ],
+    "psr-4": {
+      "core\\": "core/",
+      "controllers\\": "controllers/",
+      "repository\\": "repository/",
+      "services\\": "services/",
+      "entities\\": "entities/",
+      "models\\": "models/"
+    }
+  }
+}
