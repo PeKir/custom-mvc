@@ -3,22 +3,22 @@
 namespace core\database;
 
 
-use core\utils\ErrorHandler;
+use repository\CommentRepository;
+use repository\PostRepository;
+use repository\UserRepository;
 
 class RepositoryFactory
 {
 
     public static function createRepositoryByName($name)
     {
-        $path = '\repository\\' . ucfirst($name) . 'Repository';
-        if (class_exists($path)) {
-
-            return new $path($name);
-        } else {
-            ErrorHandler::handleError(520,"$path not found.");
+        if ($name == 'user') {
+            return new UserRepository($name);
+        } elseif ($name == 'post') {
+            return new PostRepository($name);
+        } elseif ($name == 'comment') {
+            return new CommentRepository($name);
         }
-
-        return null;
     }
 
 }
